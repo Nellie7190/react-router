@@ -14,7 +14,7 @@ const Stock = (props) => {
     //function to fetch stock data
     const getStock = async () => {
         const response = await fetch(symbol);
-        const data = await response.json();
+        const data = await response;
         setStock(data);
     };
 
