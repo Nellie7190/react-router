@@ -2,12 +2,13 @@ import React from "react";
 import stocks from '../data'
 import { Link } from 'react-router-dom'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+    
     return(
         <div>
             <h1>This is my Dashboard page</h1>
             {stocks.map((stock) => {
-                const {name, symbol, lastPrice} = stock;
+                const {name, symbol} = stock;
 
                 return(
                     <Link to={`/stocks/${symbol}`}>

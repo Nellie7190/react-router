@@ -5,8 +5,9 @@ import Stock from './pages/Stock';
 import Dashboard from './pages/Dashboard';
 import Nav from './components/Nav';
 import { Route, Switch } from 'react-router-dom';
+import stocks from './data';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Nav />
@@ -19,11 +20,11 @@ function App() {
         </Route>
         <Route
         path="/stocks/:symbol"
-        render={(routerProps) => <Stock {...routerProps} /> }
+        render={(routerProps) => <Stock stocks={stocks} {...routerProps} /> }
         />
-        <Route path="/stocks">
-          <Dashboard />
-        </Route>
+        <Route path="/stocks"
+        render={(routerProps) => <Dashboard stocks={stocks} {...routerProps} /> }
+        />
       </Switch>
     </div>
   );

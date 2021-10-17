@@ -1,38 +1,21 @@
 import React, { useState, useEffect } from "react";
-//import stocks from "../data.json";
 
 const Stock = (props) => {
 
-    //Grabbing the stock symbol from data
-    const symbol = props.match.params.symbol;
-
-    //const url = stocks.symbol
-    
-    //state to hold the stock data
-    const [stock, setStock] = useState(null);
-
-    //function to fetch stock data
-    const getStock = async () => {
-        const response = await fetch(symbol);
-        const data = await response;
-        setStock(data);
-    };
-
-    //useEffect to run getStock when component mounts
-    useEffect(() => {
-        getStock();
-    }, []);
+    //Grabbing the stock by filtering the symbol from data
+    const stocks = props.stocks.filter( stock => stock.symbol === props.match.params.symbol)[0]
 
     //loaded function for when data is fetched
     const loaded = () => {
+
         return (
             <div>
-                <h2>{stock.symbol}</h2>
+                <h2>{stocks.symbol}</h2>
                 <h2>
-                    Name: {stock.name}
+                    Name: {stocks.name}
                 </h2>
                 <h2>
-                    Price: {stock.lastPrice}
+                    Price: {stocks.lastPrice}
                 </h2>
             </div>
         );
@@ -45,7 +28,29 @@ const Stock = (props) => {
 
 
     //if stock has data, run the loaded function, otherwise, run loading
-    return stock ? loaded() : loading ();
+    return stocks ? loaded() : loading ();
 };
 
 export default Stock;
+
+
+
+// import React from 'react'
+
+
+// const Stock = (props) => {
+
+
+//     //filter data by matching the symbol
+//     const stock = props.stocks.filter( stock => stock.symbol === props.match.params.symbol)[0]
+//     return (
+//     //get the correct data from stock 
+//         <div>
+//         <h3>Name: {stock.name}</h3>
+//         <h3>Price: {stock.lastPrice}</h3>
+//         </div>
+//   )
+// }
+
+
+// export default Stock
