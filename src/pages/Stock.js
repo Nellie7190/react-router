@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-
 const Stock = (props) => {
 
     //Grabbing the stock by filtering the symbol from data
