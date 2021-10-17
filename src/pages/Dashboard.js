@@ -1,5 +1,5 @@
 import React from "react";
-import stocks from '../data'
+import stocks from '../data.json'
 import { Link } from 'react-router-dom'
 
 const Dashboard = (props) => {

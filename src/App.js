@@ -5,7 +5,8 @@ import Stock from './pages/Stock';
 import Dashboard from './pages/Dashboard';
 import Nav from './components/Nav';
 import { Route, Switch } from 'react-router-dom';
-import stocks from './data';
+//import stocks from './data';
+import stocks from './data.json'
 
 function App(props) {
   return (
